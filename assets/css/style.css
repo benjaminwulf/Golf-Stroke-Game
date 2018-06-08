@@ -1,3 +1,24 @@
+.jumbotron-fluid {
+    color: #fff;
+    text-align: right;
+    background:url("https://s3-us-west-2.amazonaws.com/benji.to/img-jumbotron-golf_score_app.png");
+    /* background-size: contain; */
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    padding-top:100px;
+    padding-bottom:100px;
+    opacity: .88;
+    height: 400px;
+}
+
+.rounded-square {
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+
+}
+
 .ball-image {
   width: 250px;
   height: 250px;
