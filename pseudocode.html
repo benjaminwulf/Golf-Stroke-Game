@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Golf Ball Guessing Game Psudocode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/defaul
+ t.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.
+ min.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    <h1>Golf Ball Guessing Game Psudocode</h1>
+    <h3>Create HTML elements, classes, and ids</h3>
+    <ul>
+        <li>Create h1 header</li>
+        <li>Create div w/ direction</li>
+        <ul>
+            <li>given a random number</li>
+            <li>four golf balls, each adds your score for the hole</li>
+            <li>you win the game by matching the score, if you lose, your score is the difference over the random number</li>
+            <li>the value of the balls is hidden until you click on it</li>
+            <li>Each game the balls have diffenent values</li>
+        </ul>
+        <li>create a visible div that displays random number between 19-120. give it an id="random-number-id"</li>
+        <li>creat another div with win/loss counter and message display</li>
+        <ul>
+            <li>id="wins"</li>
+            <li>id="losses"</li>
+            <li>id="game-message"</li>
+        </ul>
+        <li>Display four images of golf balls. Inside each div hold a random value between 1-12</li>
+        <li>Each gold ball has to be created as a button.</li>
+        <ul>
+            <li>id="pink-ball"</li>
+            <li>id="blue-ball"</li>
+            <li>id="orange-ball"</li>
+            <li>id="green-ball"</li>
+        </ul>
+        <li>Create div that displays total score</li>
+    </ul>
+    <h3>Create JavaScript / jQuery code</h3>
+    <ol>
+        <li>Generate random number and save to variable. Use jQuery to display to id="random-number-id"</li>
+        <li>Create on click event that applies to all four golf balls. It should execute the initial function summed below:</li>
+        <ul>
+            <li>
+                <em>$(".crystal-image").on("click", function() {</em>
+            </li>
+            <li>We will take the value and convert from string to number like below:</li>
+            <li>var crystalValue = ($(this).attr("data-crystalvalue")); crystalValue = parseInt(crystalValue);</li>
+            <li>Add ball amount to the counter</li>
+        </ul>
+        <li>create a if/else if statement that checks the counter total and displays win/loss</li>
+        <li>reset game with function</li>
+    </ol>
+</body>
+
+</html>

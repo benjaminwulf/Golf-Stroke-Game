@@ -10,6 +10,51 @@ var numberToDisplay = 0;
 
         console.log("#number-to-display: ", numberToDisplay);
     });
+var counter = 0;
+
+// Here we will create four golf balls, each with unique stroke value
+// We begin with expanding an array for four options
+// var numberOptions = [10, 5, 3, 7]
+
+
+//Creating nexted ojects of ball
+var ball = {
+    green: {
+        frontValue: "10",
+        backValue: "4",
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_green.png"
+    }
+    blue: {
+        frontValue: "5",
+        backValue: "6",
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_blue.png"
+    }
+    orange: {
+        frontValue: "3",
+        backValue: "8",
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_orange.png"
+    }
+    pink: {
+        frontValue: "7",
+        backValue: "2",
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_pink.png"
+    }
+}
+
+// Create a for loop to create golf balls for each number option
+for (var i = 0; i < ball.length; i++) {
+    
+// Random use of src images for ball object
+var keys = Object.keys(ball)
+var rand = keys[Math.floor(Math.random() * keys.lenth)];
+$("#golf-balls").html(ball[rand].src);
+
+console.log("keys", keys);
+console.log("rand", rand);
+console.log("ball", ball);
+console.log("src", ball.src);
+
+}
 
 // END document ready
 });
