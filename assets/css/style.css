@@ -12,15 +12,25 @@
     height: 400px;
 }
 
+.container {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+.card {
+    /* margin: 0 auto; */
+    float: none;
+    margin-left: -52;
+}
+
 .rounded-square {
-    height: 50px;
-    width: 100px;
     border-radius: 20px;
 
 }
 
 .ball-image {
-  width: 250px;
-  height: 250px;
+  width: 100px;
+  height: 100px;
 }
 
