@@ -81,10 +81,6 @@ $("#golf-ball").append(newDiv);
 
 //=================================================================================
 
-
-
-//=================================================================================
-
 var greenPoints = golfBalls.green.points;
 var bluePoints = golfBalls.blue.points;
 var orangePoints = golfBalls.orange.points;
@@ -120,9 +116,6 @@ $("#ball-pink").on("click", function() {
 });
 //=================================================================================
 
-
-
-//=================================================================================
 $(".ball-image").on("click", function () {
 
 switch (counter) {
@@ -201,63 +194,71 @@ switch (counter) {
     counter = 18;
     $("#hole-18").text(sumPoints);
     break;
+    case 19:
+    counter > 18;
+    $("#display-message").text("Head to the 19th hole...")
+    break;
     }
 });
 
 //=================================================================================
 
 function gameChecker() {
-    if (sumPoints == randomNumber && sumPoints !== 0) {
+   if (sumPoints == randomNumber && sumPoints !== 0) {
     winCounter++;
     $("#display-message").text("Winner!");
     console.log("Winner");
     console.log(winCounter);
 }  else if (sumPoints > randomNumber) {
     lossCounter++;
-    $("#display-message").text("Loser!");
+    overPar = sumPoints % randomNumber;
+    $("#display-message").text(overPar + " Over Par!");
     console.log("Loser");
     console.log(lossCounter);
+}  else if (counter >= 18) {
+    $("#display-message").text("Out of golf holes. Take a Mulligan or see you next time.");
 } else {
-    console.log("Next Hole...")
-
-}
+    console.log($("#display-message").text("Next Hole..."));
+    }
 };
 
 //=================================================================================
-    Array.prototype.shuffle = function(){
-        for (var i = 0; i < this.length; i++){
-            var a = this[i];
-            var b = Math.floor(Math.random() * this.length);
-            this[i] = this[b];
-            this[b] = a;
-        }
-    };
+//bww FUTURE CODE   
+// Array.prototype.shuffle = function(){
+    //     for (var i = 0; i < this.length; i++){
+    //         var a = this[i];
+    //         var b = Math.floor(Math.random() * this.length);
+    //         this[i] = this[b];
+    //         this[b] = a;
+    //     }
+    // };
     
-    randomNumGolfBall = shuffleProperties(randomNumGolfBall()); // run shuffle
+    // randomNumGolfBall = shuffleProperties(randomNumGolfBall()); // run shuffle
     
-    function shuffleProperties(randomNumGolfBall) {
-        var new_obj = {};
-        var keys = getKeys(randomNumGolfBall);
-        keys.shuffle();
-        for (var key in keys){
-            if (key == "shuffle") continue; // skip our prototype method
-            new_obj[keys[key]] = randomNumGolfBall[keys[key]];
-        }
-        return new_obj;
-    }
+    // function shuffleProperties(randomNumGolfBall) {
+    //     var new_obj = {};
+    //     var keys = getKeys(randomNumGolfBall);
+    //     keys.shuffle();
+    //     for (var key in keys){
+    //         if (key == "shuffle") continue; // skip our prototype method
+    //         new_obj[keys[key]] = randomNumGolfBall[keys[key]];
+    //     }
+    //     return new_obj;
+    // }
     
-    function getKeys(randomNumGolfBall){
-        var arr = new Array();
-        for (var key in randomNumGolfBall)
-            arr.push(key);
-        return arr;
-    };
+    // function getKeys(randomNumGolfBall){
+    //     var arr = new Array();
+    //     for (var key in randomNumGolfBall)
+    //         arr.push(key);
+    //     return arr;
+    // };
 
-    shuffleProperties(randomNumGolfBall);
-    console.log(Object.keys(randomNumGolfBall));
+    // shuffleProperties(randomNumGolfBall);
+    // console.log(Object.keys(randomNumGolfBall));
 
     // END document ready
+//===================================================================
+
 });
 
 
-//===================================================================
