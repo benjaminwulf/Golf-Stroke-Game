@@ -41,7 +41,7 @@ $("#resetGame").on("click", function() {
     $("#number-to-display").text(randomNumber);
     $("#strokes").text(strokes);
     $("#sum-points").text(sumPoints);
-    $(".hole").text("X"); //bww
+    $(".hole").text("X"); 
 });
 
 //=================================================================================
