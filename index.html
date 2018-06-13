@@ -30,9 +30,6 @@
     <!-- Jumbotron with Title -->
     <div class="jumbotron jumbotron-fluid">
         <div class="text-center">
-            <br>
-            <br>
-            <br>
             <h1>Golf Stroke Game</h1>
             <br>
             <button id="number-to-guess" class="btn btn-warning btn-xs theme-button">
@@ -43,9 +40,21 @@
             </button>
             <hr>
             <label>
-                <h1>
+                <h3>Par:    
                     <span id="number-to-display"></span>
-                </h1>
+                </h3>
+            </label>
+            <br> 
+            <label>
+                <h4>Strokes:    
+                    <span id="user-points-to-display"></span>
+                </h4>
+            </label>
+            <br>
+            <label>
+                <h4>Sum:    
+                    <span id="sum-points"></span>
+                </h4>
             </label>
 
         </div>
@@ -53,86 +62,99 @@
 
 
     <!-- Overall Bootstrap Grid -->
-    <div class="container container-fluid">
-        <div class="row ">
-            <div class="col">
-                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_green.png" alt="green ball" class="img-thumbnail" width="100px">
-            </div>
-            <div class="col">
-                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_blue.png" alt="blue ball" class="img-thumbnail" width="100px">            
-            </div>
-            <div class="col">
-                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_orange.png" alt="orange ball" class="img-thumbnail" width="100px">
-            </div>
-            <div class="col">
-                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_pink.png" alt="pink ball" class="img-thumbnail" width="100px">
+
+    <!-- HERE WE ARE CREATING A DIV TO BE FILLED DYNAMICALLY -->
+    <div id="golf-ball">
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <iframe class="card-img-top" width="320" height="440" src="https://www.instagram.com/p/BjxYpjSA6KW/embed" frameborder="0"
+                    alt="Slam Dunk Golf Trick Shot"></iframe>
+                <div class="card-body">
+                    <p class="card-text">Slam Dunk! Chipping over 186 lines of code.</p>
+                </div>
             </div>
         </div>
 
-                <!-- HERE WE ARE CREATING A DIV TO BE FILLED DYNAMICALLY -->
-                <!-- <div id="golf-ball" class="ball-image">
-
-                    <div class="img1">
-                        <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_green.png" alt="">
-                    </div>
-                    <div class="img1">
-                        <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_blue.png" alt="">
-                    </div>
-                    <div class="img1">
-                        <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_orange.png" alt="">
-                    </div>
-                    <div class="img1">
-                        <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-ball_pink.png" alt="">
-                    </div>
-
-                </div> -->
-            <!-- </div>
-        </div> -->
-
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <iframe class="card-img-top" width="320" height="440" src="https://www.instagram.com/p/BjxYpjSA6KW/embed" frameborder="0"
-                        alt="Slam Dunk Golf Trick Shot"></iframe>
-                    <div class="card-body">
-                        <p class="card-text">Slam Dunk! Chipping over 186 lines of code.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <table>
-                        <tr>
-                            <th>
-                                FRONT
-                            </th>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                PAR
-                            </th>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <table>
+                    <tr>
                         <th>
-                            <!-- bww This will use arrFront -->
+                            FRONT
+                        </th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            PAR
+                        </th>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <th>
+                        <!-- bww This will use arrFront -->
+                        SCORE
+                    </th>
+                    <!-- bww This data will be created using jQuery and classes or ids -->
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            BACK
+                        </th>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            PAR
+                        </th>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <!-- bww This will use arrBack -->
                             SCORE
                         </th>
                         <!-- bww This data will be created using jQuery and classes or ids -->
@@ -145,65 +167,21 @@
                         <td>X</td>
                         <td>X</td>
                         <td>X</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                BACK
-                            </th>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
-                            <td>13</td>
-                            <td>14</td>
-                            <td>15</td>
-                            <td>16</td>
-                            <td>17</td>
-                            <td>18</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                PAR
-                            </th>
-                            <td>5</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td>3</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <!-- bww This will use arrBack -->
-                                SCORE
-                            </th>
-                            <!-- bww This data will be created using jQuery and classes or ids -->
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                            <td>X</td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <div class="card-body">
+                    </tr>
+                </table>
+                <hr>
+                <div class="card-body">
 
-                        <p>
-                            Welcome to the Benjito's Golf Stroke Game. You will be playing my TrickShot course. Each color ball has a hidden value. You
-                            will walk through an 18 hole course. The objective is to shoot par. But watch out because on
-                            the Back 9. The values reset. Click a ball to begin.
-                        </p>
-                    </div>
+                    <p>
+                        Welcome to the Benjito's Golf Stroke Game. You will be playing my TrickShot course. Each color ball has a hidden value. You
+                        will walk through an 18 hole course. The objective is to shoot par. But watch out because on the
+                        Back 9. The values reset. Click a ball to begin.
+                    </p>
                 </div>
             </div>
         </div>
-        <!-- END DIV FOR CONTAINER -->
+    </div>
+    <!-- END DIV FOR CONTAINER -->
     </div>
     <script type="text/javascript" src="./assets/javascript/main.js"></script>
 </body>

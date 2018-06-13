@@ -10,41 +10,80 @@ $(document).ready(function () {
 
         console.log("#number-to-display: ", numberToDisplay);
     });
-    var counter = 0;
 
-    // Here we will create four golf balls, each with unique stroke value
-    // We begin with expanding an array for four options
-    var frontNumbers = [10, 5, 3, 7]
-    var backNumbmers = [4, 6, 8, 2]
-    var handicap = 0;
-    var strokesToMatch = (72 + handicap)
-    var stroke = 0
-    var count = 0
+//=================================================================================
 
-    // Creating nested objects of ball
-    var obj = {  //bww was balls
-        green: {
-            frontValue: "10",
-            backValue: "4",
-            src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_green.png"
-        },
-        blue: {
-            frontValue: "5",
-            backValue: "6",
-            src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_blue.png"
-        },
-        orange: {
-            frontValue: "3",
-            backValue: "8",
-            src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_orange.png"
-        },
-        pink: {
-            frontValue: "7",
-            backValue: "2",
-            src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_pink.png"
-        }
-    }
-    console.log(Object.keys(obj));
+// Function that resets the game.
+function setGame() {
+     // Generate a random target number and render it to the page.
+    randomNumber = numberToDisplay();
+    $("#number-to-display").text(randomNumber);
+  }
+
+//=================================================================================
+
+
+  // Function that generates random values for our crystals and returns our crystals object.
+function randomNumGolfBall() {
+    // Crystals object.
+    return {
+      green: {
+        points: Math.floor(Math.random() * 12) + 1,
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_green.png"
+      },
+      blue: {
+        points: Math.floor(Math.random() * 12) + 1,
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_blue.png"
+      },
+      orange: {
+        points: Math.floor(Math.random() * 12) + 1,
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_orange.png"
+      },
+      pink: {
+        points: Math.floor(Math.random() * 12) + 1,
+        src: "https://s3-us-west-2.amazonaws.com/benji.to/img-ball_pink.png"
+      }
+    };
+  };
+
+var golfBalls = randomNumGolfBall();
+
+var newDiv = "<img src='" + golfBalls.green.src + "' class='ball-image' id='ball-green'>";
+    newDiv += "<img src='" + golfBalls.blue.src + "' class='ball-image' id='ball-blue'>";
+    newDiv += "<img src='" + golfBalls.orange.src + "' class='ball-image' id='ball-orange'>";
+    newDiv += "<img src='" + golfBalls.pink.src + "' class='ball-image' id='ball-pink'>";
+
+$("#golf-ball").append(newDiv);
+
+//=================================================================================
+
+var greenPoints = golfBalls.green.points;
+var bluePoints = golfBalls.blue.points;
+var orangePoints = golfBalls.orange.points;
+var pinkPoints = golfBalls.pink.points;
+var sumPoints = 0;
+
+$("#ball-green").on("click", function() {
+    sumPoints += greenPoints;
+    $("#user-points-to-display").text(greenPoints);
+    $("#sum-points").text(sumPoints);
+});
+$("#ball-blue").on("click", function() {
+    sumPoints += bluePoints;
+    $("#user-points-to-display").text(bluePoints);
+    $("#sum-points").text(sumPoints);
+});
+$("#ball-orange").on("click", function() {
+    sumPoints += orangePoints;
+    $("#user-points-to-display").text(orangePoints);
+    $("#sum-points").text(sumPoints);
+});
+$("#ball-pink").on("click", function() {
+    sumPoints += pinkPoints;
+    $("#user-points-to-display").text(pinkPoints);
+    $("#sum-points").text(sumPoints);
+});
+
 
 //=================================================================================
     Array.prototype.shuffle = function(){
@@ -54,37 +93,33 @@ $(document).ready(function () {
             this[i] = this[b];
             this[b] = a;
         }
-    }
+    };
     
-    obj = shuffleProperties(obj); // run shuffle
+    randomNumGolfBall = shuffleProperties(randomNumGolfBall()); // run shuffle
     
-    function shuffleProperties(obj) {
+    function shuffleProperties(randomNumGolfBall) {
         var new_obj = {};
-        var keys = getKeys(obj);
+        var keys = getKeys(randomNumGolfBall);
         keys.shuffle();
         for (var key in keys){
             if (key == "shuffle") continue; // skip our prototype method
-            new_obj[keys[key]] = obj[keys[key]];
+            new_obj[keys[key]] = randomNumGolfBall[keys[key]];
         }
         return new_obj;
     }
     
-    function getKeys(obj){
+    function getKeys(randomNumGolfBall){
         var arr = new Array();
-        for (var key in obj)
+        for (var key in randomNumGolfBall)
             arr.push(key);
         return arr;
-    }
+    };
 
-    shuffleProperties(obj);
-    console.log(Object.keys(obj));
-
+    shuffleProperties(randomNumGolfBall);
+    console.log(Object.keys(randomNumGolfBall));
 
     // END document ready
 });
 
 
 //===================================================================
-// List of things I would like to additionally accomplish
-// 18 turns // stroke per hole
-// front 9 // back 9
