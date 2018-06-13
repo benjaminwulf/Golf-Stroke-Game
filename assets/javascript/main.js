@@ -14,9 +14,11 @@ $(document).ready(function () {
 //=================================================================================
 
 // numberToDisplay = 0;
+var strokes = 0;
 var randomNumber = 0;
 var strokes = 0;
 var sumPoints = 0;
+var displayMessage = "";
 var winCounter = 0;
 var lossCounter = 0;
 var counter = 0;
@@ -39,7 +41,7 @@ function resetGame() {
 $("#resetGame").on("click", function() {
     resetGame();
     $("#number-to-display").text(randomNumber);
-    $("#user-points-to-display").text(strokes);
+    $("#strokes").text(strokes);
     $("#sum-points").text(sumPoints);
 });
 
@@ -91,39 +93,44 @@ var pinkPoints = golfBalls.pink.points;
 $("#ball-green").on("click", function() {
     sumPoints += greenPoints;
     gameChecker();
-    $("#user-points-to-display").text(greenPoints);
+    $("#strokes").text(greenPoints);
     $("#sum-points").text(sumPoints);
 });
 $("#ball-blue").on("click", function() {
     sumPoints += bluePoints;
     gameChecker();
-    $("#user-points-to-display").text(bluePoints);
+    $("#strokes").text(bluePoints);
     $("#sum-points").text(sumPoints);
 });
 $("#ball-orange").on("click", function() {
     sumPoints += orangePoints;
     gameChecker();
-    $("#user-points-to-display").text(orangePoints);
+    $("#strokes").text(orangePoints);
     $("#sum-points").text(sumPoints);
 });
 $("#ball-pink").on("click", function() {
     sumPoints += pinkPoints;
     gameChecker();
-    $("#user-points-to-display").text(pinkPoints);
+    $("#strokes").text(pinkPoints);
     $("#sum-points").text(sumPoints);
 });
 
 //=================================================================================
 
 function gameChecker() {
-    if (sumPoints == randomNumber && strokes !== 0) {
+    if (sumPoints == randomNumber && sumPoints !== 0) {
     winCounter++;
+    $("#display-message").text("Winner!");
     console.log("Winner");
+    console.log(winCounter);
 }  else if (sumPoints > randomNumber) {
     lossCounter++;
+    $("#display-message").text("Loser!");
     console.log("Loser");
+    console.log(lossCounter);
 } else {
     console.log("Next Hole...")
+
 }
 };
 
