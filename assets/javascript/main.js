@@ -14,11 +14,18 @@ $(document).ready(function () {
 //=================================================================================
 
 // Function that resets the game.
-function setGame() {
-     // Generate a random target number and render it to the page.
-    randomNumber = numberToDisplay();
-    $("#number-to-display").text(randomNumber);
-  }
+function resetGame() {
+    // Generate a random target number and render it to the page.
+    numberToDisplay = 0;
+    strokes = 0
+    sumPoints = 0;
+  };
+$("#resetGame").on("click", function() {
+    resetGame();
+    $("#number-to-display").text(numberToDisplay);
+    $("#user-points-to-display").text(strokes);
+    $("#sum-points").text(sumPoints);
+});
 
 //=================================================================================
 
