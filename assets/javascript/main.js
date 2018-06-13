@@ -14,11 +14,9 @@ $(document).ready(function () {
 //=================================================================================
 
 // numberToDisplay = 0;
-var strokes = 0;
 var randomNumber = 0;
 var strokes = 0;
 var sumPoints = 0;
-var displayMessage = "";
 var winCounter = 0;
 var lossCounter = 0;
 var counter = 0;
@@ -92,27 +90,114 @@ var pinkPoints = golfBalls.pink.points;
 
 $("#ball-green").on("click", function() {
     sumPoints += greenPoints;
+    counter++;
     gameChecker();
     $("#strokes").text(greenPoints);
     $("#sum-points").text(sumPoints);
 });
 $("#ball-blue").on("click", function() {
     sumPoints += bluePoints;
+    counter++;
     gameChecker();
     $("#strokes").text(bluePoints);
     $("#sum-points").text(sumPoints);
 });
 $("#ball-orange").on("click", function() {
     sumPoints += orangePoints;
+    counter++;
     gameChecker();
     $("#strokes").text(orangePoints);
     $("#sum-points").text(sumPoints);
 });
 $("#ball-pink").on("click", function() {
     sumPoints += pinkPoints;
+    counter++;
     gameChecker();
     $("#strokes").text(pinkPoints);
     $("#sum-points").text(sumPoints);
+});
+//=================================================================================
+
+$(".ball-image").on("click", function () {
+
+switch (counter) {
+    case 0:
+    counter = 0;
+    $("#display-message").text("Welcome to the links!");
+    break;
+    case 1:
+    counter = 1;
+    $("#hole-01").text(sumPoints);
+    break;
+    case 2:
+    counter = 2;
+    $("#hole-02").text(sumPoints);
+    break;
+    case 3:
+    counter = 3;
+    $("#hole-03").text(sumPoints);
+    break;
+    case 4:
+    counter = 4;
+    $("#hole-04").text(sumPoints);
+    break;
+    case 5:
+    counter = 5;
+    $("#hole-05").text(sumPoints);
+    break;
+    case 6:
+    counter = 6;
+    $("#hole-06").text(sumPoints);
+    break;
+    case 7:
+    counter = 7;
+    $("#hole-07").text(sumPoints);
+    break;
+    case 8:
+    counter = 8;
+    $("#hole-08").text(sumPoints);
+    break;
+    case 9:
+    counter = 9;
+    $("#hole-09").text(sumPoints);
+    break;
+    case 10:
+    counter = 10;
+    $("#hole-10").text(sumPoints);
+    break;
+    case 11:
+    counter = 11;
+    $("#hole-11").text(sumPoints);
+    break;
+    case 12:
+    counter = 12;
+    $("#hole-12").text(sumPoints);
+    break;
+    case 13:
+    counter = 13;
+    $("#hole-13").text(sumPoints);
+    break;
+    case 14:
+    counter = 14;
+    $("#hole-14").text(sumPoints);
+    break;
+    case 15:
+    counter = 15;
+    $("#hole-15").text(sumPoints);
+    break;
+    case 16:
+    counter = 16;
+    $("#hole-16").text(sumPoints);
+    break;
+    case 17:
+    counter = 17;
+    $("#hole-17").text(sumPoints);
+    break;
+    case 18:
+    counter = 18;
+    $("#hole-18").text(sumPoints);
+    break;
+    }
 });
 
 //=================================================================================
