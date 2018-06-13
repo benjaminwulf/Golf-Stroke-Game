@@ -41,6 +41,7 @@ $("#resetGame").on("click", function() {
     $("#number-to-display").text(randomNumber);
     $("#strokes").text(strokes);
     $("#sum-points").text(sumPoints);
+    $(".hole").text("X"); //bww
 });
 
 //=================================================================================
@@ -118,12 +119,14 @@ $("#ball-pink").on("click", function() {
 });
 //=================================================================================
 
+
+
+//=================================================================================
 $(".ball-image").on("click", function () {
 
 switch (counter) {
     case 0:
     counter = 0;
-    $("#display-message").text("Welcome to the links!");
     break;
     case 1:
     counter = 1;
