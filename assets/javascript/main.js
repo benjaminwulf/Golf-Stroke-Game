@@ -42,6 +42,7 @@ $("#resetGame").on("click", function() {
     $("#strokes").text(strokes);
     $("#sum-points").text(sumPoints);
     $(".hole").text("X"); 
+    $("#display-message").text("Mulligan");
 });
 
 //=================================================================================
